@@ -4,55 +4,62 @@
     <header class="header header2 transparent custom sticky-header">
         <div class="header-inner">
             <div class="container">
+            <div class="col-md-2">
                 <a href="index.html" class="site-logo" title="">
                     <img src="{{asset('img/logo.png')}}" width="125" height="30" alt="NSIA Assurance">
                 </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-container" aria-expanded="false">
-                    <span class="toggle-text">Menu</span>
-                    <span class="toggle-wrapper">
+            </div>
+               <div class="col-md-8">
+                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-container" aria-expanded="false">
+                       <span class="toggle-text">Menu</span>
+                       <span class="toggle-wrapper">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </span>
-                </button>
+                   </button>
 
-                <div class="collapse navbar-collapse max-height" id="main-nav-container">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown active">
-                            <a href="{{url('/')}}" class="dropdown-toggle" aria-expanded="false">
-                                Accueil
-                            </a>
-                        </li>
+                   <div class="collapse navbar-collapse max-height" id="main-nav-container">
 
-                        <li class="dropdown megamenu-container">
-                            <a href="{{url('/a-propos')}}" role="button" aria-expanded="false">Découvrez-nous</a>
-                        </li>
-                        <li class="dropdown megamenu-container">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nos produits</a>
-                            <div class="dropdown-menu megamenu" role="menu">
+                       <ul class="nav navbar-nav">
+                           <li class="dropdown active">
+                               <a href="{{url('/')}}" class="dropdown-toggle" aria-expanded="false">
+                                   Accueil
+                               </a>
+                           </li>
 
-                                @include('patials._authers_header_prod')
-                                <!-- End .container -->
-                            </div><!-- End .megamenu -->
-                        </li>
-                        <li class="dropdown megamenu-container">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Actualités</a>
-                        </li>
-                        <li class="dropdown megamenu-container">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espace Client</a>
-                        </li>
-                        <li class="dropdown megamenu-container">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">FAQS</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="{{url('/contact')}}" class="dropdown-toggle" aria-expanded="false">Contact</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="btn btn-nsia-orange-1" aria-expanded="false"><i class="fa fa-map-marker"></i> Localisez un agent</a>
-                        </li>
-                    </ul>
-                </div><!-- /Menu -->
+                           <li class="dropdown megamenu-container">
+                               <a href="{{url('/a-propos')}}" role="button" aria-expanded="false">Découvrez-nous</a>
+                           </li>
+                           <li class="dropdown megamenu-container">
+                               <a href="{{route('cotation')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nos produits</a>
+                               <div class="dropdown-menu megamenu" role="menu">
+
+                               @include('patials._authers_header_prod')
+                               <!-- End .container -->
+                               </div><!-- End .megamenu -->
+                           </li>
+                           <li class="dropdown megamenu-container">
+                               <a href="{{route('actualite')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Actualités</a>
+                           </li>
+                           {{--<li class="dropdown megamenu-container">--}}
+                           {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Espace Client</a>--}}
+                           {{--</li>--}}
+                           {{--<li class="dropdown megamenu-container">--}}
+                           {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">FAQS</a>--}}
+                           {{--</li>--}}
+                           <li class="dropdown">
+                               <a href="{{url('/contact')}}" class="dropdown-toggle" aria-expanded="false">Contact</a>
+                           </li>
+                           {{--<li class="dropdown">--}}
+                           {{--<a href="" class="btn btn-nsia-orange-1" aria-expanded="false"><i class="fa fa-map-marker"></i> Localisez un agent</a>--}}
+                           {{--</li>--}}
+                       </ul>
+
+                   </div>
+               </div>
+                <!-- /Menu -->
 
             </div><!-- Fin .container -->
         </div><!-- Fin .header-inner -->
@@ -67,11 +74,43 @@
             <div class="section-intro">
                 <span class="NSIA-title" style=" font-size:35px;">Bienvenue dans l'univers NSIA VIE ASSURANCES Côte d'Ivoire !</span>
                 <article class="NSIA-substitle">
-                    <a href="#" class="btn btn-primary btn-nsia-orange" style="margin: 10px;">
+                    <a href="" class="btn btn-primary btn-nsia-orange" style="margin: 10px;" data-toggle="modal" data-target="#exampleModalLong">
                         Demander à être contacté par un conseiller client </a>
                 </article>
             </div><!-- End .section-intro -->
         </div><!-- End .section -->
+        <!-- Button trigger modal -->
+        {{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">--}}
+            {{--Launch demo modal--}}
+        {{--</button>--}}
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{--<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>--}}
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{route('post-contact')}}" method="post" id="contact-form">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="email" class="form-control" id="contactsubject" name="desir" placeholder="Veuillez laisser votre e-mail">
+                                </div><!-- End .col-md-6 -->
+                            </div><!-- End .row -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Demander</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div><!-- End #pagepiling -->
     <!-- / fin corps de la page -->

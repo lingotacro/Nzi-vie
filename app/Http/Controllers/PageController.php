@@ -34,9 +34,14 @@ class PageController extends Controller
         return view('pages.actualite', $data);
     }
     public  function cotation(){
-        $data['services'] = file_get_contents('http://test.jtprospace.com/ecomri08208154b8939a5e5cfd2d6dd792530b5196bb24/api/produce');
-        $data['services'] = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data['services']));
-//        dd($data['services']);
+       try {
+           $data['services'] = file_get_contents('http://test.jtprospace.com/ecomri08208154b8939a5e5cfd2d6dd792530b5196bb24/api/produce');
+           $data['services'] = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data['services']));
+       }catch (\Exception $excep){
+           echo 'problème de connexion ';
+           return back()->with('error','Un probleème est survenue veuillez vérifier votre connexion ou reéssayer plus tard');
+       }
+////        dd($data['services']);
 
         $data['jb_title'] = ['lib_jb' => 'Services NSIA-VIE ASSURANCES','sub_jb' => 'Services'];
         return view('pages.cotation', $data);

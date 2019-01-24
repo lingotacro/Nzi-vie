@@ -51,7 +51,13 @@
                                 </center>
                             </div>
                             <div class="container">
-                                <center> <h1 style="text-transform: uppercase;"> {{$services->message}}</h1></center>
+                                <center> <h1 style="text-transform: uppercase;">
+                                        @if($services)
+                                        {{$services->message}}</h1>
+                                             @else
+                                                 Lorem ipsum dolor sit amet.
+                                         @endif
+                                </center>
                             </div>
                         </div>
                         <!-- Button trigger modal -->
@@ -60,35 +66,39 @@
                         {{--</button>--}}
 
                         <!-- Modal -->
-                        @foreach($services->datas as $value )
-                        <div class="modal fade" id="exampleModalCenter{{$value->produce_key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">{{$value->produce_name}}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                       @if($services)
+                            @foreach($services->datas as $value )
+                                <div class="modal fade" id="exampleModalCenter{{$value->produce_key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">{{$value->produce_name}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                         @endforeach
+                           @endif
                         <!-- Fin modal -->
 
                         <div class="owl-carousel owl-theme" style="margin-top: 35px;">
-                            @foreach($services->datas as $value )
-                                <div class="item">
-                                    <a href="" data-toggle="modal" data-target="#exampleModalCenter{{$value->produce_key}}"><img src="{{$value->image}}" class="img-responsive zoom" alt=""></a>
-                                </div>
-                            @endforeach
+                           @if($services)
+                                @foreach($services->datas as $value )
+                                    <div class="item">
+                                        <a href="" data-toggle="modal" data-target="#exampleModalCenter{{$value->produce_key}}"><img src="{{$value->image}}" class="img-responsive zoom" alt=""></a>
+                                    </div>
+                                @endforeach
+                           @endif
                         </div>
                         <hr>
                     </section>

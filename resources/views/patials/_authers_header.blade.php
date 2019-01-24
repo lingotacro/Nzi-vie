@@ -11,7 +11,7 @@
             </div><!-- End .top-text -->
 
             <div class="top-links pull-left">
-                <a href="#">Se connecter</a>
+                <a href="/login">Se connecter</a>
                 <a href="#">Demander à être rappellé</a>
             </div><!-- End .top-links -->
         </div><!-- End .container -->

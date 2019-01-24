@@ -5313,6 +5313,7 @@ label.error {
   .header.header2 .navbar-collapse {
     float: right;
     position: static !important;
+      /*margin-left: 30px!important;  */
   }
 }
 

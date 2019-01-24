@@ -11,6 +11,10 @@
 |
 */
 
+//Route::get('/kgb',function (){
+//    return view('layouts.admin');
+//});
+
 Auth::routes();
 ///////////////////////////////////////////////////////////////////////  HEADER SIMPLE LINK ////////////////////////////////////////////////////////////////////////////
  Route::get('/', 'PageController@accueil')->name('home');
@@ -23,3 +27,14 @@ Auth::routes();
 
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact-us', ['as'=>'post-contact','uses'=>'ContactController@store']);
+
+
+/////////////////////////////////////////////////////////////// ADMINISTRATION ////////////////////////////////////////////////////////////////
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::group(['prefix' => 'administration'], function (){
+        Route::get('/accueil','Administration@index')->name('admin-index');
+        Route::get('/ajoute-actualite','Administration@acutusadd')->name('admin-actu-add');
+    });
+
+});

@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         MercurySeries\Flashy\FlashyServiceProvider::class,
+        Grimthorr\LaravelToast\ServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -225,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'Toast' => Grimthorr\LaravelToast\Facade::class,
 
     ],
 
