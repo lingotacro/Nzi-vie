@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="JARS TECHNOLOGIES">
     <meta name="author" content="ECOMASSUR">
-    <meta name="csrf-token" content="YPwU8iypLUOXFRAoW53VsVAlZ8S3sB4QoeN238js">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="user-id" content="2">
     <meta name="entite-id" content="">
     <meta name="is-resp" content="0">
@@ -17,43 +16,32 @@
     <!-- App title -->
     <title>{{ config('app.name', 'NSIA') }} {{isset($title) ? ' | '. $title  : ''}}</title>
 
-    <link href="{{asset('css/admin/bootstrap-select.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('css/admin/bootstrap-datepicker.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('css/admin/toastr.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{asset('css/admin/tooltipster.bundle.min.css')}}">
-
-    <!-- Animated css -->
-    <link href="{{asset('css/admin/animate.min.css')}}" rel="stylesheet" type="text/css"/>
-
-    <!-- Sweet Alert -->
-    <link href="{{asset('css/admin/sweet-alert.css')}}" rel="stylesheet" type="text/css">
-
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="{{asset('css/admin/morris.css')}}">
+    <!-- Table Responsive css -->
+    <link href="../plugins/responsive-table/css/rwd-table.min.css" rel="stylesheet" type="text/css" media="screen">
 
     <!-- App css -->
-    <link href="{{asset('css/admin/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/core.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/components.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/icons.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/pages.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/menu.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/admin/responsive.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{asset('css/admin/switchery.min.css')}}">
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/core.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/components.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/pages.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/menu.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('plugins/toastr/toastr.min.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{asset('plugins/switchery/switchery.min.css')}}">
 
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <!-- Bootstrap core CSS -->
-    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">--}}
-    <!-- Material Design Bootstrap -->
-    <!-- Font Awesome -->
-    {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">--}}
-    <!-- Bootstrap core CSS -->
-    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">--}}
-    <!-- Material Design Bootstrap -->
-    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/css/mdb.min.css" rel="stylesheet">--}}
-    <![endif]-->
-    <script src="{{asset('js/admin/modernizr.min.js')}}"></script>
+    <script src="{{asset('assets/js/modernizr.min.js')}}"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-83057131-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 
     <style>
         #my-loading {
@@ -68,6 +56,7 @@
             background-color: rgba(0, 0, 0, .83);
             z-index: 9999;
         }
+
         #my-loading .loader_div {
             position: fixed;
             display: block;
@@ -75,6 +64,7 @@
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
+
         #my-loading .loader_div svg {
             width: 300px;
             height: 300px;
@@ -134,7 +124,7 @@
                 </g>
             </g>
         </svg>
-        <!-- <img src="Public/img/svg-loaders/puff.svg" alt="" /> -->
+        <!-- <img src="img/svg-loaders/puff.svg" alt="" /> -->
     </div>
 </div>
 <!-- Fin Loader -->
@@ -221,7 +211,9 @@
                             <li>
                                 <form action="logout" method="POST">
                                     <input type="hidden" name="_token" value="YPwU8iypLUOXFRAoW53VsVAlZ8S3sB4QoeN238js">
-                                    <button class="btn btn-danger btn-block waves-effect waves-light"><i class="ti-power-off m-r-5"></i> Déconnexion</button>
+                                    <button class="btn btn-danger btn-block waves-effect waves-light"><i
+                                            class="ti-power-off m-r-5"></i> Déconnexion
+                                    </button>
                                 </form>
                             </li>
                         </ul>
@@ -246,7 +238,8 @@
                     </div>
                     <div class="user-info">
                         <div>
-                            <a href="#setting-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}
+                            <a href="#setting-dropdown" class="dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">{{ Auth::user()->name }}
                                 <span class="label label-danger">Administrateur</span>
                                 <span class="mdi mdi-menu-down"></span></a>
                         </div>
@@ -257,10 +250,12 @@
                         <li><a href="profil"><i class="mdi mdi-account m-r-5"></i>Profil</a></li>
                         <li><a href="compte"><i class="mdi mdi-lock m-r-5"></i>Mon compte</a></li>
                         <li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
-                                        @csrf
-                                        <button class="btn btn-inverse waves-effect waves-light" type="submit"><i class="mdi mdi-logout m-r-5"></i> Déconnexion </button>
-                                    </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="btn btn-inverse waves-effect waves-light" type="submit"><i
+                                        class="mdi mdi-logout m-r-5"></i> Déconnexion
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -280,17 +275,10 @@
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
+
                             <li>
-                                <a href="entreprises/2f0788f8-32f1-4a19-a30e-ab81ad9d65f3" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Mon entreprise </a>
-                            </li>
-                            <li>
-                                <a href="situations-matrioniales" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Statut matrimoniale </a>
-                            </li>
-                            <li>
-                                <a href="compagnies" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Compagnie </a>
-                            </li>
-                            <li>
-                                <a href="risques" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Risque </a>
+                                <a href="{{route('social')}}" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i>
+                                    Réseau sociaux </a>
                             </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect">
@@ -308,69 +296,12 @@
                                         <a href="professions" class="waves-effect"> Profession </a>
                                     </li>
                                     <li>
-                                        <a href="activites-professionnelles" class="waves-effect"> Activité professionnelle </a>
+                                        <a href="activites-professionnelles" class="waves-effect"> Activité
+                                            professionnelle </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="  waves-effect">
-                                    <i class="mdi mdi-invert-colors m-r-5"></i> Absence
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
 
-                                    <li>
-                                        <a href="autorisations" class="waves-effect"> Autorisation d'absence </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="conges" class="waves-effect"> Congé </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect">
-                                    <i class="mdi mdi-invert-colors m-r-5"></i> Salaire
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="categories-salariales" class="waves-effect"> Catégorie salariale </a>
-                                    </li>
-                                    <li>
-                                        <a href="rubriques-imposables" class="waves-effect"> Rubrique imposable </a>
-                                    </li>
-                                    <li>
-                                        <a href="accessoires-salaire" class="waves-effect">Accessoire de salaire </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect">
-                                    <i class="mdi mdi-invert-colors m-r-5"></i> Comptabilité
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="modes-payement" class="waves-effect"> Mode de payement </a>
-                                    </li>
-                                    <li>
-                                        <a href="types-operation" class="waves-effect"> Type d'opération </a>
-                                    </li>
-                                    <li>
-                                        <a href="plans-comptables" class="waves-effect"> Plan comptable </a>
-                                    </li>
-                                    <li>
-                                        <a href="banques" class="waves-effect"> Banque </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="prestataires" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Prestataire </a>
-                            </li>
-                            <li>
-                                <a href="pays" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Pays </a>
-                            </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect">
                                     <i class="mdi mdi-invert-colors m-r-5"></i> Assignation
@@ -390,8 +321,6 @@
                             </li>
 
 
-
-
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect">
                                     <i class="mdi mdi-invert-colors m-r-5"></i> Courrier
@@ -409,29 +338,77 @@
                         </ul>
                     </li>
 
-
                     <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="mdi mdi-newspaper"></i>
                             <span> Actualité</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="list-unstyled">
 
                             <li>
-                                <a href="{{route('admin-actu-add')}}" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Ajouter</a>
+                                <a href="{{route('admin-actu-add')}}" class="waves-effect"><i class="mdi mdi-plus"></i>
+                                    Ajouter</a>
                             </li>
                             <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Projets </a>
+                                <a href="{{route('admin-actu-shw')}}" class="waves-effect"><i
+                                        class="mdi mdi-format-list-numbers"></i> Liste </a>
                             </li>
                             <li class="has_sub">
-                                <a href="#" class="waves-effect"> <i class="mdi mdi-invert-colors m-r-5"></i> Taches </a>
+                                <a href="javascript:void(0);" class="waves-effect">
+                                    <i class="mdi mdi-invert-colors m-r-5"></i> Catégories
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li class="has_sub">
+                                        <a href="" class="waves-effect" data-toggle="modal"
+                                           data-target="#basicExampleModal">Créer</a>
+                                    </li>
+                                    <li class="has_sub">
+                                        <a href="" class="waves-effect">Liste</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"> <i class="mdi mdi-invert-colors m-r-5"></i> Matériels et fournitures de bureau </a>
-                            </li>
+
                         </ul>
                     </li>
+
+                    <!--    MODAL D'AJOUT DE CATEGORIE ACTUALITE-->
+                    <!-- Modal -->
+                    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true" style="margin-top: 70px;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                    <!-- Material form contact -->
+                                    <div class="card">
+                                        <h5 class="card-header info-color white-text text-center py-4">
+                                            <strong>Ajouter une ctégorie d'actualité</strong>
+                                        </h5>
+                                        <!--Card content-->
+                                        <form class="text-center" method="post" action="{{route('admin-cat-actu-str')}}"
+                                              style="color: #757575;">
+                                            @csrf
+                                            <div class="md-form mt-3">
+                                                <label for="materialContactFormName">Titre</label>
+                                                <input type="text" id="materialContactFormName" name="titre"
+                                                       class="form-control" required>
+                                            </div>
+                                            <div class="card-body px-lg-5 pt-0">
+                                            </div>
+                                            <div class="modal-footer"
+                                                 style="margin-top: 20px; border-top: 0px!important;">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                                    Annuler
+                                                </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--    //MODAL D'AJOUT DE CATEGORIE ACTUALITE-->
 
 
                     <li class="has_sub">
@@ -442,10 +419,12 @@
                         </a>
                         <ul class="list-unstyled">
                             <li class="has_sub">
-                                <a href="agendas" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> prospections</a>
+                                <a href="agendas" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i>
+                                    prospections</a>
                             </li>
                             <li class="has_sub">
-                                <a href="questionnaire" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i> Questionnaires</a>
+                                <a href="questionnaire" class="waves-effect"><i class="mdi mdi-invert-colors m-r-5"></i>
+                                    Questionnaires</a>
                             </li>
 
                             <li class="has_sub">
@@ -594,14 +573,15 @@
                         </a>
                         <ul class="list-unstyled">
 
-                            <li><a href="select-courrier-bordereau"><i class="mdi mdi-invert-colors m-r-5"></i>Enregistrer un bordereau</a></li>
+                            <li><a href="select-courrier-bordereau"><i class="mdi mdi-invert-colors m-r-5"></i>Enregistrer
+                                    un bordereau</a></li>
 
 
-                            <li><a href="bordereaux"><i class="mdi mdi-invert-colors m-r-5"></i>Bordereaux enregistrés</a></li>
+                            <li><a href="bordereaux"><i class="mdi mdi-invert-colors m-r-5"></i>Bordereaux
+                                    enregistrés</a></li>
 
                         </ul>
                     </li>
-
 
 
                     <li class="has_sub">
@@ -612,18 +592,18 @@
                         </a>
                         <ul class="list-unstyled">
 
-                            <li><a href="create-email"><i class="mdi mdi-invert-colors m-r-5"></i>Envoyer un email</a></li>
+                            <li><a href="create-email"><i class="mdi mdi-invert-colors m-r-5"></i>Envoyer un email</a>
+                            </li>
 
 
                             <li><a href="emails"><i class="mdi mdi-invert-colors m-r-5"></i>Boite d'envoi</a></li>
 
 
-
-                            <li><a href="show-delete-emails"><i class="mdi mdi-invert-colors m-r-5"></i>Poubelle</a></li>
+                            <li><a href="show-delete-emails"><i class="mdi mdi-invert-colors m-r-5"></i>Poubelle</a>
+                            </li>
 
                         </ul>
                     </li>
-
 
 
                     <li class="has_sub">
@@ -659,9 +639,11 @@
 
                             <li><a href="copie-courriers"><i class="mdi mdi-invert-colors m-r-5"></i>En copies</a></li>
 
-                            <li><a href="destine-courriers"><i class="mdi mdi-invert-colors m-r-5"></i>Qui me sont destinés</a></li>
+                            <li><a href="destine-courriers"><i class="mdi mdi-invert-colors m-r-5"></i>Qui me sont
+                                    destinés</a></li>
 
-                            <li><a href="assigne-courriers"><i class="mdi mdi-invert-colors m-r-5"></i>Qui me sont assignés</a></li>
+                            <li><a href="assigne-courriers"><i class="mdi mdi-invert-colors m-r-5"></i>Qui me sont
+                                    assignés</a></li>
                             <li><a href="courrier/search"><i class="mdi mdi-invert-colors m-r-5"></i>Rechercher</a></li>
                         </ul>
                     </li>
@@ -704,7 +686,7 @@
                             </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect">
-                                    <i class="mdi mdi-invert-colors m-r-5"></i> Production
+                                    <i class="mdi mdi-invert-colors m-r-5"></i> Page
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="list-unstyled">
@@ -811,6 +793,15 @@
                         </div>
                     </div>
                 </div>
+                @if(session()->has('message'))
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{{session()->get('message')}}</strong>
+                    </div>
+                @endif
                 <div class="row">
 
                     @yield('admin')
@@ -821,7 +812,10 @@
 
         <footer class="footer text-right">
             <center>
-                Copyright © 2018 . Tous droits réservés | Développé par <a class="text-danger" href="http://www.jarstechnologies.com" target="_blank" style="color: #fff;">Jars Technologies</a>
+                Copyright © 2018 . Tous droits réservés | Développé par <a class="text-danger"
+                                                                           href="http://www.jarstechnologies.com"
+                                                                           target="_blank" style="color: #fff;">Jars
+                    Technologies</a>
             </center>
         </footer>
     </div>
@@ -895,36 +889,37 @@
 </script>
 
 <!-- jQuery  -->
-<script src="{{asset('js/admin/jquery.min.js')}}"></script>
-<script src="{{asset('js/admin/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/admin/detect.js')}}"></script>
-<script src="{{asset('js/admin/fastclick.js')}}"></script>
-<script src="{{asset('js/admin/jquery.blockUI.js')}}"></script>
-<script src="{{asset('js/admin/waves.js')}}"></script>
-<script src="{{asset('js/admin/jquery.slimscroll.js')}}"></script>
-<script src="{{asset('js/admin/jquery.scrollTo.min.js')}}"></script>
-<script src="{{asset('js/admin/switchery.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/detect.js')}}"></script>
+<script src="{{asset('assets/js/fastclick.js')}}"></script>
+<script src="{{asset('assets/js/jquery.blockUI.js')}}"></script>
+<script src="{{asset('assets/js/waves.js')}}"></script>
+<script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
+<script src="{{asset('assets/js/jquery.scrollTo.min.js')}}"></script>
+<script src="{{asset('plugins/switchery/switchery.min.js')}}"></script>
 
 <!-- Counter js  -->
-<script src="{{asset('js/admin/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('js/admin/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('plugins/waypoints/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('plugins/counterup/jquery.counterup.min.js')}}"></script>
 
 <!--Morris Chart-->
-<script src="{{asset('js/admin/morris.min.js')}}"></script>
-<script src="{{asset('js/admin/raphael-min.js')}}"></script>
-<script src="{{asset('js/admin/moment-with-locale.js')}}"></script>
+<script src="{{asset('plugins/morris/morris.min.js')}}"></script>
+<script src="{{asset('plugins/raphael/raphael-min.js')}}"></script>
 
-<script src="{{asset('js/admin/bootstrap-select.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('js/admin/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
-<!-- JQuery -->
-{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
-<!-- Bootstrap tooltips -->
-{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>--}}
-<!-- Bootstrap core JavaScript -->
-{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>--}}
-<!-- MDB core JavaScript -->
-{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.0/js/mdb.min.js"></script>--}}
-<!-- Init js -->
+<!-- Dashboard init -->
+<script src="{{asset('assets/pages/jquery.dashboard.js')}}"></script>
+<script src="{{asset('plugins/toastr/toastr.min.js')}}"></script>
+
+<!-- App js -->
+<script src="{{asset('assets/js/jquery.core.js')}}"></script>
+{{--<script src="{{asset('assets/js/jquery.app.js')}}"></script>--}}
+
+<!-- App js -->
+{{--<script src="{{asset('assets/js/jquery.core.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/jquery.app.js')}}"></script>--}}
+<script src="{{asset('js/larails.js')}}"></script>
+
 <script>
     jQuery('#date_creation').datepicker({
         format: 'dd/mm/yyyy',
@@ -934,7 +929,7 @@
 </script>
 
 <!-- Tooltipster js -->
-<script src="{{asset('js/admin/tooltipster.bundle.min.js')}}"></script>
+<script src="{{asset('js/tooltipster.bundle.min.js')}}"></script>
 <script>
     $('.tooltip-animation').tooltipster({
         animation: 'grow'
@@ -942,41 +937,14 @@
 </script>
 
 <!-- App js -->
-<script src="{{asset('js/admin/jquery.core.js')}}"></script>
-<script src="{{asset('js/admin/jquery.app.js')}}"></script>
+<script src="{{asset('js/jquery.core.js')}}"></script>
+<script src="{{asset('js/jquery.app.js')}}"></script>
+@include('components.notification')
 
-<script src="{{asset('js/admin/toastr.min.js')}}"></script>
-<script type="text/javascript">
-    function toasterOptions() {
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-    };
-    toasterOptions();
-
-
-</script><script src="{{asset('js/admin/sweet-alert.min.js')}}"></script>
+<script src="{{asset('js/sweet-alert.min.js')}}"></script>
 <script type="text/javascript">
     $(function () {
     })
-</script><script src="//localhost:6001/socket.io/socket.io.js"></script>
-<script src="{{asset('js/admin/app.js')}}"></script>
-<script>
-    $(function () {
-        var animation = "fadeInUp";
-        var area = $(".to-animate");
-        area.addClass('animated ' + animation);
-    });
 </script>
 </body>
 </html>
